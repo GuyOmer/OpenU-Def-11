@@ -3,7 +3,7 @@
 #include <utility>
 #include <iostream>
 
-unsigned long User::getId() {
+unsigned long User::getId() const {
     return id;
 }
 
@@ -23,7 +23,7 @@ void User::post(std::string text) {
     post(new Post(std::move(text)));
 }
 
-void User::post(std::string text, Media &media) {
+void User::post(std::string text, Media *media) {
     post(new Post(std::move(text), media));
 }
 
@@ -62,20 +62,12 @@ void User::receiveMessage(Message *&msg) {
     receivedMsgs.pop_front();
 }
 
-void User::sendMessage(User &to, Message *msg) {
-    to.receivedMsgs.push_back(msg);
+void User::sendMessage(User *to, Message *msg) {
+    to->receivedMsgs.push_back(msg);
 }
 
 void User::viewReceivedMessages() {
     for (auto msg: receivedMsgs) {
         std::cout << msg->getText() << std::endl;
     }
-}
-
-User::~User() {
-
-}
-
-User::User() {
-
 }

@@ -20,22 +20,22 @@ protected:
     std::list<Post *> posts;
     std::list<Message *> receivedMsgs;
 
-    User();
-    ~User();
+    User()  = default;
+    ~User() = default;
 
     friend class USocial;
 public:
-    unsigned long getId();
+    unsigned long getId() const;
     std::string getName();
     void addFriend(User *);
     void removeFriend(User &);
     void post(std::string);
-    void post(std::string, Media &);
+    void post(std::string, Media *);
     void post(Post *);
     std::list<Post *> getPosts();
     void viewFriendsPosts();
     void receiveMessage(Message *&);
-    void sendMessage(User &, Message *);
+    static void sendMessage(User *, Message *);
     void viewReceivedMessages();
 };
 

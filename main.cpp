@@ -29,7 +29,7 @@ int main()
     }
     u5->viewReceivedMessages();
     u3->addFriend(u5);
-    u3->sendMessage(u5, new Message("All your base are belong to us"));
+    User::sendMessage(u5, new Message("All your base are belong to us"));
     u5->viewReceivedMessages();
 
     try {

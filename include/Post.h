@@ -1,21 +1,18 @@
-//
-// Created by a on 15/07/2022.
-//
-
 #ifndef USOCIAL_POST_H
 #define USOCIAL_POST_H
 
 #include <string>
+#include <optional>
 
 #include "Media.h"
 
 class Post {
 public:
     explicit Post(std::string);
-    Post(std::string, Media &);
+    Post(std::string, Media *);
 
     std::string getText();
-    Media* getMedia();
+    Media *getMedia();
 
 private:
     std::string text;
