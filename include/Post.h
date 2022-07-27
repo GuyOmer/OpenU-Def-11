@@ -3,13 +3,15 @@
 
 #include <string>
 #include <optional>
+#include <utility>
 
 #include "Media.h"
 
 class Post {
 public:
-    explicit Post(std::string);
-    Post(std::string, Media *);
+    Post(std::string text, Media *media);
+    explicit Post(std::string text) : Post(std::move(text), nullptr) {};
+    ~Post();
 
     std::string getText();
     Media *getMedia();

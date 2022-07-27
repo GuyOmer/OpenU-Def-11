@@ -4,6 +4,7 @@
 class Media {
 public:
     Media() = default;
+    virtual ~Media() = default;
 
     void display();
     virtual std::string getMediaType() = 0;

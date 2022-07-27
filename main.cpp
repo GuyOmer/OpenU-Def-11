@@ -29,7 +29,7 @@ int main()
     }
     u5->viewReceivedMessages();
     u3->addFriend(u5);
-    User::sendMessage(u5, new Message("All your base are belong to us"));
+    u3->sendMessage(u5, new Message("All your base are belong to us"));
     u5->viewReceivedMessages();
 
     try {
@@ -39,5 +39,6 @@ int main()
     catch (const std::runtime_error& e) {
         std::cout << "error: " << e.what() << std::endl;
     }
+
     return 0;
 }

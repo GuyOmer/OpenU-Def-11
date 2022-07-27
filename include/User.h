@@ -21,7 +21,7 @@ protected:
     std::list<Message *> receivedMsgs;
 
     User()  = default;
-    ~User() = default;
+    ~User();
 
     friend class USocial;
 public:
@@ -35,7 +35,7 @@ public:
     std::list<Post *> getPosts();
     void viewFriendsPosts();
     void receiveMessage(Message *&);
-    static void sendMessage(User *, Message *);
+    void sendMessage(User *, Message *);
     void viewReceivedMessages();
 };
 
